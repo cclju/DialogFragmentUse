@@ -23,7 +23,7 @@ public class ListDialogFragment extends BaseDialogFragment{
     private String[] mItemContents;
     private ListDialogListener mListener;
 
-    public static interface ListDialogListener extends BaseDialogListener{
+    public interface ListDialogListener extends BaseDialogListener{
         void onItemClick(int position);
     }
 

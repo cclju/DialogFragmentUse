@@ -34,12 +34,12 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.FriendView
         @Override
         public void onItemClick(int position) {
 
-            Toast.makeText(mContext,"点击了 po="+position,Toast.LENGTH_LONG).show();
+            Toast.makeText(mContext, "点击了 po=" + position, Toast.LENGTH_LONG).show();
 
         }
     };
 
-    public static interface FriendsListener{
+    public interface FriendsListener {
         void onFriendItemLongClick(Friend longClickFriend);
     }
 
@@ -49,10 +49,9 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.FriendView
     }
 
 
-    public FriendAdapter(Context context, DialogFactory dialogFactory,FriendsListener listener) {
+    public FriendAdapter(Context context, DialogFactory dialogFactory, FriendsListener listener) {
         this.mContext = context;
         this.mDialogFactory = dialogFactory;
-        dialogFactory.restoreDialogListener(this);
         this.mListener = listener;
     }
 
@@ -61,7 +60,6 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.FriendView
         FriendViewHolder re = new FriendViewHolder(LayoutInflater.from(mContext).inflate(R.layout.adapter_friend_item, viewGroup, false));
         return re;
     }
-
 
 
     @Override
@@ -80,8 +78,7 @@ public class FriendAdapter extends RecyclerView.Adapter<FriendAdapter.FriendView
             public boolean onLongClick(View v) {
 
                 if (mDialogFactory != null) {
-
-                    mDialogFactory.showListDialog(new String[]{"delete","copy"}, true, listDialogListener);
+                    mDialogFactory.showListDialog(new String[]{"delete", "copy"}, true, listDialogListener);
                 }
 
                 if (mListener != null) {
